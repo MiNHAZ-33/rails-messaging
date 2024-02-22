@@ -1,0 +1,7 @@
+<div>
+  <%= form_with(model:[@user, @message], url: user_messages_path(@user), data:{controller:"reset-form", action: "turbo:submit-end->reset-form#reset"}) do |f| %>
+    <%= f.hidden_field :receiver_id, value: @user.id  %>
+    <%= f.text_field :body %>
+    <%= f.submit "Send", class: "bg-blue-900 px-2 py-2 border text-white rounded-sm" %>
+   <% end %>
+</div>

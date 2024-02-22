@@ -1,0 +1,27 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="grid grid-cols-5">
+    <div class="min-h-screen col-span-1">
+      <h1> Welcome : <%= current_user.username %></h1>
+      <h1 class="font-semibold">Users</h1>
+      <%= turbo_stream_from "users" %>
+      <%= render @users %>
+    </div>
+    <div class="min-h-screen col-span-4">
+      <h1> Messages section</h1>
+      <% if @user %>
+        <div class="text-2xl font-bold">
+          <%= @user.username %>
+        </div>
+        <%= turbo_stream_from "messages" %>
+        <div id="messages">
+          <%= render @messages %>
+        </div>
+         <%= render "messages/form" %>
+      <% end %>
+    </div>
+  </div>
+</div>
