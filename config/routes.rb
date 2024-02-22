@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   root "homes#index"
-  resources :homes
+  resources :homes, only: [:index]
   devise_for :users
   resources :users do
-    resources :messages
+    resources :messages, only: [:create]
   end
-
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

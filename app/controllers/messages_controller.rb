@@ -1,7 +1,15 @@
 class MessagesController < ApplicationController
   def create
-    puts "Message is creating"
-    @message = Message.create(body: params[:message][:body], sender_id: current_user.id, receiver_id: params[:message][:receiver_id])
-    puts "From #{@message}"
+    if params[:message][:body].empty?
+      return
+    end
+    message = Message.new(msg_params)
+    message.save!
   end
+
+  private
+  def msg_params
+    params.require(:message).permit(:body, :receiver_id, :sender_id)
+  end
+
 end
