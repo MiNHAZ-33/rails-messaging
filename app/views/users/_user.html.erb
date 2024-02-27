@@ -1,3 +1,8 @@
-<div>
-  <%= link_to user.username, user %>
+<div class="py-2 flex items-center">
+  <div class="h-[3rem] w-[3rem] rounded-full">
+    <%= image_tag("profile_avatar.jpg") %>
+  </div>
+  <div class="px-2">
+    <%= link_to user.username, user %>
+  </div>
 </div>

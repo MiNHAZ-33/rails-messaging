@@ -3,25 +3,32 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="grid grid-cols-5">
-    <div class="min-h-screen col-span-1">
-      <h1> Welcome : <%= current_user.username %></h1>
-      <h1 class="font-semibold">Users</h1>
+  <div class="grid grid-cols-12">
+    <div class="min-h-screen col-span-3 border-2 px-3 divide-y overflow-auto">
+      <div class="py-2">
+        <h2 class="text-xl">Message</h2>
+      </div>
       <%= turbo_stream_from "users" %>
       <%= render @users %>
     </div>
-    <div class="min-h-screen col-span-4">
-      <h1> Messages section</h1>
+    <div class="min-h-screen col-span-9 border-2 px-3 ">
       <% if @user %>
-        <div class="text-2xl font-bold">
-          <%= @user.username %>
+        <div class="py-1">
+          <div class="text-2xl font-semibold">
+            <%= @user.username %>
+          </div>
+          <p>Available</p>
         </div>
-        <%= turbo_stream_from "messages" %>
-        <div id="messages">
-          <%= render @messages %>
+        <div class="bg-gray-100 rounded-lg flex flex-col">
+          <%= turbo_stream_from "messages" %>
+          <div id="messages" class="h-[32rem] overflow-auto">
+            <%= render @messages %>
+          </div>
+          <div class="">
+            <%= render "messages/form" %>
+          </div>
+            <% end %>
         </div>
-         <%= render "messages/form" %>
-      <% end %>
     </div>
   </div>
 </div>

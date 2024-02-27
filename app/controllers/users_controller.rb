@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     # @user = User.find_by_id(params[:id])
     @message = Message.new
     @messages = Message.get_messages(current_user.id, @user.id)
+    @current_user_id = current_user.id
     render 'homes/index'
   end
 

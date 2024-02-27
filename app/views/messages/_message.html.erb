@@ -1,8 +1,25 @@
-<div class=" p-3 m-2 rounded-full max-w-32 bg-sky-500">
-  <!--  <div>-->
-<!--  <h2><%#= message.user.username %></h2>-->
-  <h3>
-    <%= message.body %>
-  </h3>
-  <!--  </div>-->
-</div>
+<% if Current.user.id == message.sender_id %>
+  <div class="flex justify-end">
+    <div class="p-3 m-2 rounded-lg max-w-32 bg-sky-300">
+      <h3><%= message.body %></h3>
+      <h1>
+        Current <%= Current.user.id %>
+      </h1>
+      <h1>
+<!--        Devise user <%#= current_user.id %>-->
+      </h1>
+    </div>
+  </div>
+<% else %>
+  <div class="flex justify-start">
+    <div class="p-3 m-2 rounded-lg max-w-32 bg-green-300">
+      <h3><%= message.body %></h3>
+      <h1>
+        Current <%= Current.user.id %>
+      </h1>
+      <h1>
+<!--        Devise user <%#= current_user.id %>-->
+      </h1>
+    </div>
+  </div>
+<% end %>
