@@ -5,7 +5,8 @@ class UsersController < ApplicationController
     @users = User.all_except(current_user)
     # @user = User.find_by_id(params[:id])
     @message = Message.new
-    @messages = Message.get_messages(current_user.id, @user.id)
+    filtered_messages = Message.get_messages(current_user.id, @user.id)
+    @messages = filtered_messages.sort_by(&:created_at)
     @current_user_id = current_user.id
     render 'homes/index'
   end

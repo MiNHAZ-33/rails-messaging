@@ -1,12 +1,11 @@
 <div class="msg-<%= message.sender_id %>-cont ">
-  <div class=" bg-sky-300 rounded-lg max-w-32 p-3 m-2 msg-<%= message.sender_id %>-body">
+  <div class=" bg-white shadow rounded-lg max-w-48 p-3 m-2 msg-<%= message.sender_id %>-body">
+    <div class="h-[1.5rem] w-[1.5rem] rounded-full overflow-hidden">
+      <%= image_tag("profile_avatar.jpg") %>
+    </div>
     <h3><%= message.body %></h3>
-<!--    <h1>-->
-<!--      Devise user <%#= current_user.id %>-->
-<!--    </h1>-->
   </div>
 </div>
-
 
 <%# if Current.user.id == message.sender_id %>
 <!--  <div class="flex justify-end msg-<%#= current_user&.id %>">-->

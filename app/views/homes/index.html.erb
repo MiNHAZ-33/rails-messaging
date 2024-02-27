@@ -4,9 +4,13 @@
   <% end %>
 
   <div class="grid grid-cols-12">
-    <div class="min-h-screen col-span-3 border-2 px-3 divide-y overflow-auto">
+    <div class="min-h-screen col-span-3 border-2 px-3  overflow-auto">
       <div class="py-2">
         <h2 class="text-xl">Message</h2>
+      </div>
+<!--      Search User-->
+      <div>
+        <input class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-400" placeholder="Search user...">
       </div>
       <%= turbo_stream_from "users" %>
       <%= render @users %>
@@ -19,11 +23,29 @@
           </div>
           <p>Available</p>
         </div>
-        <div class="bg-gray-100 rounded-lg flex flex-col">
-          <%= turbo_stream_from "messages" %>
-          <div id="messages" class="h-[32rem] overflow-auto">
-            <%= render @messages %>
-          </div>
+        <div class="pt-2">
+<!--          User + Message div-->
+        <div class="bg-gray-100 rounded-lg flex flex-col  overflow-auto">
+<!--          User details over message section-->
+            <div class="flex flex-col items-center">
+              <div class="h-[6rem] w-[6rem] rounded-full overflow-hidden">
+                <%= image_tag("profile_avatar.jpg") %>
+              </div>
+              <div class="font-semibold m-1">
+                <%= @user.username %>
+              </div>
+              <div class="font-light">
+                <%= @user.email %>
+              </div>
+                <br class="w-full"/>
+            </div>
+  <!--          Message section-->
+            <%= turbo_stream_from "messages" %>
+            <div id="messages" class="h-[32rem]   ">
+              <%= render @messages %>
+            </div>
+        </div>
+<!--          Message form-->
           <div class="">
             <%= render "messages/form" %>
           </div>
