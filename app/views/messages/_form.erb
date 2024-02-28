@@ -1,9 +1,11 @@
-<div class="flex items-center justify-center pb-2 bg-gray-100 w-full">
-  <%= form_with(model:[@user, @message], url: user_messages_path(@user), data:{controller:"reset-form", action: "turbo:submit-end->reset-form#reset"}, html: { class: "w-full"}) do |f| %>
+<div class="px-2 pb-2 bg-gray-100">
+  <%= form_with(model:[@user, @message], url: user_messages_path(@user), data:{controller:"reset-form", action: "turbo:submit-end->reset-form#reset"}) do |f| %>
     <%= f.hidden_field :receiver_id, value: @user.id  %>
     <%= f.hidden_field :sender_id, value: current_user.id %>
-    <%= f.text_field :body, class:"flex-grow rounded-lg border-gray-300"%>
-    <%= f.submit "Send", class: "bg-blue-900 px-3 py-2 text-white rounded-lg " %>
+    <div class="flex">
+      <%= f.text_field :body, class:"flex-grow rounded-l-lg border-gray-300"%>
+      <%= f.submit "Send", class: "bg-blue-900 px-3 py-2 text-white rounded-r-lg " %>
+    </div>
   <% end %>
 </div>
 
