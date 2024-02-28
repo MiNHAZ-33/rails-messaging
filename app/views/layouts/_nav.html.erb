@@ -1,0 +1,25 @@
+<nav class="bg-sky-300 py-2 flex items-center justify-around">
+  <div class="flex items-center">
+    <i class="fa-solid fa-house fa-lg px-2"></i>
+    <h1 class="font-semibold text-xl">Home</h1>
+  </div>
+
+  <div class="flex items-center">
+    <i class="fa-solid fa-users fa-lg px-2"></i>
+    <h1 class="font-semibold text-xl">Connections</h1>
+  </div>
+
+  <div class="flex items-center">
+    <i class="fa-solid fa-message fa-lg px-2"></i>
+    <h1 class="font-semibold text-xl">Messages</h1>
+  </div>
+
+  <div class="flex items-center">
+    <div class="px-2">
+      <div class="rounded-full h-[3rem] w-[3rem] overflow-hidden ">
+        <%= image_tag("profile_avatar.jpg") %>
+      </div>
+    </div>
+    <h1 class="font-semibold text-xl"><%= current_user.username %></h1>
+  </div>
+</nav>

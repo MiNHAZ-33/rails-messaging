@@ -71,4 +71,5 @@ end
 
 gem "devise", "~> 4.9"
 
-gem "warden"
+gem "font-awesome-sass", "~> 6.5.1"
+
