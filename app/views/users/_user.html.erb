@@ -1,9 +1,11 @@
-<div class="py-2 flex items-center hover:bg-gray-200">
-  <div class="h-[3rem] w-[3rem] rounded-full overflow-hidden">
-    <%= image_tag("profile_avatar.jpg") %>
+<%= link_to user do %>
+  <div class="py-2 flex items-center hover:bg-gray-200">
+    <div class="h-[3rem] w-[3rem] rounded-full overflow-hidden">
+      <%= image_tag("profile_avatar.jpg") %>
+    </div>
+    <div class="px-2 flex flex-col">
+      <%=  user.username %>
+      <span id="last_msg_<%=user.id%>" class="text-sm font-light"><%= find_last_message(user.id) %></span>
+    </div>
   </div>
-  <div class="px-2 flex flex-col">
-    <%= link_to user.username, user %>
-    <span class="text-sm font-light"><%= find_last_message(user.id) %></span>
-  </div>
-</div>
+<% end %>
