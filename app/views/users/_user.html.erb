@@ -4,8 +4,6 @@
   </div>
   <div class="px-2 flex flex-col">
     <%= link_to user.username, user %>
-    <%#= @last_message %>
-    <span class="text-sm font-light">The last message</span>
-    <i class="icon-share-alt icon-white"></i>
+    <span class="text-sm font-light"><%= find_last_message(user.id) %></span>
   </div>
 </div>
