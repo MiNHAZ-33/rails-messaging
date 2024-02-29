@@ -2,7 +2,10 @@
   <%= form_with(model:[@user, @message], url: user_messages_path(@user), data:{controller:"reset-form", action: "turbo:submit-end->reset-form#reset"}) do |f| %>
     <%= f.hidden_field :receiver_id, value: @user.id  %>
     <%= f.hidden_field :sender_id, value: current_user.id %>
-    <div class="flex">
+    <div class="flex items-center overflow-hidden">
+      <div class="mr-1">
+        <i class="fa-solid fa-image fa-3x"></i>
+      </div>
       <%= f.text_field :body, class:"flex-grow rounded-l-lg border-gray-300"%>
       <%= f.submit "Send", class: "bg-sky-300 px-3 py-2  rounded-r-lg " %>
     </div>

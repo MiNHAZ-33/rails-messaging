@@ -3,15 +3,10 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_user_id
   def show
     @users = User.all_except(current_user)
-    # @user = User.find_by_id(params[:id])
     @room_name = get_name(@user, current_user)
     @single_room = Room.where(name: @room_name).first || Room.create_private_room(@room_name)
     @messages = @single_room.messages.order(created_at: :asc)
-    # Old
     @message = Message.new
-    filtered_messages = Message.get_messages(current_user.id, @user.id)
-    # @messages = filtered_messages.sort_by(&:created_at)
-    @current_user_id = current_user.id
     render 'homes/index'
   end
 
