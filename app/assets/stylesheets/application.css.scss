@@ -16,6 +16,12 @@
 
 @import "font-awesome";
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+html *{
+    font-family: "Poppins";
+}
+
 *{
     padding: 0;
     margin: 0;
