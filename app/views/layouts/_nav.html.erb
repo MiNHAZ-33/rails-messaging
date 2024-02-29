@@ -1,4 +1,4 @@
-<nav class="bg-sky-300  flex items-center justify-around">
+<nav class="bg-sky-300  flex items-center justify-around py-1">
   <%= link_to root_path do %>
     <div class="flex items-center hover:bg-sky-200 px-2 py-1 hover:rounded-lg">
       <i class="fa-solid fa-house fa-lg pr-2"></i>
@@ -25,11 +25,10 @@
       <div data-controller="toggle" class="relative">
         <div class="flex items-center hover:bg-sky-200 px-2 py-1 hover:rounded-lg" >
           <div class="px-2">
-            <div class="rounded-full h-[3rem] w-[3rem] overflow-hidden ">
+            <div class="rounded-full h-[2rem] w-[2rem] overflow-hidden ">
               <%= image_tag("profile_avatar.jpg") %>
             </div>
           </div>
-          <!--        <h1 class="font-semibold text-xl"><%#= current_user.username %></h1>-->
           <button data-action="click->toggle#menu" class="font-semibold text-xl"><%= current_user.username %></button>
         </div>
         <div data-toggle-target="menu" class="hidden absolute bg-white px-3 lg:px-5 py-2 divide-y-2 border border-gray-300 rounded-lg top5">
