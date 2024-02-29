@@ -5,7 +5,8 @@
     </div>
     <div class="px-2 flex flex-col">
       <%=  user.username %>
-      <span id="last_msg_<%=user.id%>" class="text-sm font-light"><%= find_last_message(user.id) %></span>
+      <%= turbo_stream_from "#{get_name_by_id(user.id, Current.user&.id || 0)}last_msg_#{user.id}" %>
+      <span id="<%=user.id%>" class="text-sm font-light"><%= find_last_message(user.id) %></span>
     </div>
   </div>
 <% end %>
