@@ -1,6 +1,6 @@
 <%= link_to user do %>
-  <div class="py-2 flex items-center hover:bg-sky-200">
-    <div class="h-[3rem] w-[3rem] rounded-full overflow-hidden">
+  <div class="py-2 flex items-center rounded-lg hover:bg-sky-200 <%= user.id == params[:id].to_i ? "bg-sky-300" : "" %>">
+    <div class="h-[2.5rem] w-[2.5rem] rounded-full overflow-hidden p-1">
       <%= image_tag("profile_avatar.jpg") %>
     </div>
     <div class="px-2 flex flex-col">
