@@ -2,6 +2,7 @@
   <%= form_with(model:[@user, @message], url: user_messages_path(@user), data:{controller:"reset-form", action: "turbo:submit-end->reset-form#reset"}) do |f| %>
     <%= f.hidden_field :receiver_id, value: @user.id  %>
     <%= f.hidden_field :sender_id, value: current_user.id %>
+    <%= f.hidden_field :room_id, value: get_name_by_id(current_user.id, @user.id) %>
     <div class="flex items-center justify-center overflow-hidden">
       <div class="m-1 pr-1">
         <i class="fa-solid fa-image fa-lg"></i>
@@ -10,7 +11,6 @@
         <i class="fa-solid fa-microphone fa-lg"></i>
       </div>
       <%= f.text_field :body, autocomplete: 'off', class:"flex-grow rounded-l-lg border-gray-300"%>
-      <%#= f.submit "Send", class: "bg-sky-300 px-3 py-2  rounded-r-lg " %>
       <%= button_tag type: 'submit', class:"bg-sky-300 px-4 py-2  rounded-r-lg " do %>
         <i class="fa-solid fa-paper-plane"></i>
       <% end %>

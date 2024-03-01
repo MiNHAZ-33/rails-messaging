@@ -41,8 +41,7 @@
               </div>
             </div>
   <!--          Message section-->
-            <%= turbo_stream_from @single_room %>
-             <%= @single_room.name %>
+            <%= turbo_stream_from @room %>
             <div id="messages" class=" h-[19.5rem]" >
               <%= render @messages %>
             </div>
