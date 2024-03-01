@@ -28,6 +28,18 @@ html *{
     box-sizing: border-box;
 }
 
+@keyframes msg-highlight {
+    0% {
+        background: #f61a8f;
+    }
+    100% {
+        background: none;
+    }
+}
+.msg-highlight {
+    animation: msg-highlight 1s;
+}
+
 
 
 
