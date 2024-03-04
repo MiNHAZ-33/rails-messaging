@@ -1,12 +1,15 @@
 <%= link_to user do %>
-  <div class="py-2 flex items-center rounded-lg hover:bg-sky-200 <%= user.id == params[:id].to_i ? "bg-sky-300" : "" %>">
+  <div class="py-2 px-2 flex items-center hover:bg-gray-200 <%= user.id == params[:id].to_i ? "bg-gray-200 border-l-2 border-blue-500" : "" %>">
     <div class="h-[2.5rem] w-[2.5rem] rounded-full overflow-hidden p-1">
       <%= image_tag("profile_avatar.jpg") %>
     </div>
     <div class="px-2 flex flex-col">
-      <%=  user.username %>
+      <div class="flex items-center justify-around">
+        <%=  user.username %>
+        <span class="text-sm text-gray-700 px-2">06 Jan</span>
+      </div>
       <%= turbo_stream_from "#{get_name_by_id(user.id, Current.user&.id || 0)}last_msg_#{user.id}" %>
-      <span id="<%=user.id%>" class="text-sm font-light"><%= find_last_message(user.id) %></span>
+      <span id="<%=user.id%>" class="text-sm font-light inline-block truncate"><%= find_last_message(user.id) %></span>
     </div>
   </div>
 <% end %>
