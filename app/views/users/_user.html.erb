@@ -3,10 +3,10 @@
     <div class="h-[2.5rem] w-[2.5rem] rounded-full overflow-hidden p-1">
       <%= image_tag("profile_avatar.jpg") %>
     </div>
-    <div class="px-2 flex flex-col">
-      <div class="flex items-center justify-around">
+    <div class="w-full px-2 ">
+      <div class="flex items-center justify-between ">
         <%=  user.username %>
-        <span class="text-sm text-gray-700 px-2">06 Jan</span>
+        <span class="text-sm text-gray-700 ">06 Jan</span>
       </div>
       <%= turbo_stream_from "#{get_name_by_id(user.id, Current.user&.id || 0)}last_msg_#{user.id}" %>
       <span id="<%=user.id%>" class="text-sm font-light inline-block truncate"><%= find_last_message(user.id) %></span>
