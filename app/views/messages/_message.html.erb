@@ -1,6 +1,6 @@
 <div class="msg-<%= message.sender_id %>-cont flex">
-  <div class=" bg-white rounded-lg p-3 m-2 msg-<%= message.sender_id %>-body max-w-80">
-    <div class="h-[1.5rem] w-[1.5rem] rounded-full overflow-hidden">
+  <div class=" bg-white rounded-full p-3 m-2 msg-<%= message.sender_id %>-body max-w-80">
+    <div class="h-[1.5rem] w-[1.5rem] rounded-full overflow-hidden msg-<%= message.sender_id %>-avatar">
       <%= image_tag("profile_avatar.jpg") %>
     </div>
     <h3><%= message.body %></h3>

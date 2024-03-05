@@ -15,8 +15,11 @@
       justify-content: flex-end;
       }
       <%= ".msg-#{current_user&.id}-body" %>{
-          background-color: rgb(2 132 199); !important;
+          background-color: rgba(0,122,245,255); !important;
           color: white;
+      }
+      <%= ".msg-#{current_user&.id}-avatar" %>{
+          display: none;
       }
     </style>
   </head>
