@@ -2,72 +2,77 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
+ <div class="grid grid-cols-12">
+     <div class="col-span-9  rounded-lg bg-white shadow">
+       <div class="grid grid-cols-9">
+         <div class="h-[39rem] col-span-3 border-r-2  rounded-l-lg overflow-auto">
+           <div class="py-4 px-2 flex justify-between border-b-2">
+             <h2 class="">Message</h2>
+             <div>
+               <i class="fa-solid fa-circle-plus px-2" style="color: #7c7c7c"></i>
+               <i class="fa-solid fa-ellipsis-vertical" style="color: #7c7c7c"></i>
+             </div>
+           </div>
+           <!--      Search User-->
+           <div class="flex items-center py-2 border-b-2">
+             <i class="fa-solid fa-circle-plus px-2" style="color: #7c7c7c"></i>
+             <input class="w-full px-4 py-2  rounded-lg focus:outline-none" placeholder="Search message...">
+             <i class="fa-solid fa-bars px-2" style="color: #7c7c7c"></i>
+           </div>
+           <%= turbo_stream_from "users" %>
+           <div id="users" class="">
+             <%= render @users %>
+           </div>
+         </div>
+         <div class="h-[39rem] col-span-6 border-2 border-white px-3 rounded-r-lg">
+         <% if @user %>
+           <div class="py-1 flex justify-between items-center">
+             <div>
+               <div class=" ">
+                 <%= @user.username %>
+               </div>
+               <div class="flex items-center">
+                 <div class="h-[0.5rem] w-[0.5rem] bg-[#2ac85e] rounded-full"></div>
+                 <p class="text-sm pl-2 text-gray-700">Online</p>
+               </div>
+             </div>
+             <i class="fa-solid fa-ellipsis-vertical" style="color: #7c7c7c"></i>
+           </div>
+           <div class="pt-2">
+             <!--          User + Message div-->
+             <div id="scroller_id" class="bg-gray-100 rounded-t-lg flex flex-col overflow-auto" data-controller="scroll">
+               <!--          User details over message section-->
+               <div class="flex flex-col items-center pt-2">
+                 <div class="h-[6rem] w-[6rem] rounded-full overflow-hidden ">
+                   <%= image_tag("profile_avatar.jpg") %>
+                 </div>
+                 <div class="font-semibold m-1">
+                   <%= @user.username %>
+                 </div>
+                 <div class="font-light">
+                   <%= @user.email %>
+                 </div>
+               </div>
+               <!--          Message section-->
+               <%= turbo_stream_from @room %>
+               <div id="messages" class=" h-[19.5rem]" >
+                 <%= render @messages %>
+               </div>
+             </div>
+             <!--          Message form-->
+             <div class="w-full">
+               <%= render "messages/form" %>
+             </div>
+         <% else %>
+           <div class="">
+             <%= render "messages/no_message" %>
+           </div>
+         <% end %>
+         </div>
+       </div>
+       </div>
+     </div>
+     <div class="col-span-2">hello</div>
+ </div>
 
-  <div class="grid grid-cols-12  rounded-lg bg-white shadow">
-    <div class="h-[39rem] col-span-3 border-r-2  rounded-l-lg overflow-auto">
-      <div class="py-4 px-2 flex justify-between border-b-2">
-        <h2 class="">Message</h2>
-        <div>
-          <i class="fa-solid fa-circle-plus px-2" style="color: #7c7c7c"></i>
-          <i class="fa-solid fa-ellipsis-vertical" style="color: #7c7c7c"></i>
-        </div>
-      </div>
-<!--      Search User-->
-      <div class="flex items-center py-2 border-b-2">
-        <i class="fa-solid fa-circle-plus px-2" style="color: #7c7c7c"></i>
-        <input class="w-full px-4 py-2  rounded-lg focus:outline-none" placeholder="Search message...">
-        <i class="fa-solid fa-bars px-2" style="color: #7c7c7c"></i>
-      </div>
-      <%= turbo_stream_from "users" %>
-      <div id="users" class="">
-        <%= render @users %>
-      </div>
-    </div>
-    <div class="h-[39rem] col-span-9 border-2 border-white px-3 rounded-r-lg">
-      <% if @user %>
-        <div class="py-1 flex justify-between items-center">
-          <div>
-            <div class=" ">
-              <%= @user.username %>
-            </div>
-            <div class="flex items-center">
-              <div class="h-[0.5rem] w-[0.5rem] bg-[#2ac85e] rounded-full"></div>
-              <p class="text-sm pl-2 text-gray-700">Online</p>
-            </div>
-          </div>
-          <i class="fa-solid fa-ellipsis-vertical" style="color: #7c7c7c"></i>
-        </div>
-        <div class="pt-2">
-<!--          User + Message div-->
-        <div id="scroller_id" class="bg-gray-100 rounded-t-lg flex flex-col overflow-auto" data-controller="scroll">
-<!--          User details over message section-->
-            <div class="flex flex-col items-center pt-2">
-              <div class="h-[6rem] w-[6rem] rounded-full overflow-hidden ">
-                <%= image_tag("profile_avatar.jpg") %>
-              </div>
-              <div class="font-semibold m-1">
-                <%= @user.username %>
-              </div>
-              <div class="font-light">
-                <%= @user.email %>
-              </div>
-            </div>
-  <!--          Message section-->
-            <%= turbo_stream_from @room %>
-            <div id="messages" class=" h-[19.5rem]" >
-              <%= render @messages %>
-            </div>
-        </div>
-<!--          Message form-->
-          <div class="w-full">
-            <%= render "messages/form" %>
-          </div>
-      <% else %>
-        <div class="">
-          <%= render "messages/no_message" %>
-        </div>
-      <% end %>
-        </div>
-    </div>
-  </div>
 </div>
