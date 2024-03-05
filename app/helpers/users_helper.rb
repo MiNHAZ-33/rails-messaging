@@ -1,32 +1,34 @@
 module UsersHelper
-  def find_last_message(user_id)
-    if Current.user
-      message = Message.get_messages(Current.user.id, user_id)&.order(created_at: :desc).first
-      if message
-        return message.body
-      else
-        return "No message"
-      end
-    else
-      return "No Message"
-    end
-  end
 
   def get_name_by_id(user_1, user_2)
     user = [user_1, user_2].sort
     return "private_#{user[0]}_#{user[1]}"
   end
 
+  def find_last_message(user_id)
+    message = last_message(user_id)
+    if message
+      return message.body
+    end
+    return "No message"
+  end
+
   def find_last_message_date(user_id)
+    message = last_message(user_id)
+    if message
+      return distance_of_time_in_words_to_now(message.created_at) + " ago"
+    else
+      return ""
+    end
+  end
+
+  private
+  def last_message(user_id)
     if Current.user
       message = Message.get_messages(Current.user.id, user_id)&.order(created_at: :desc).first
       if message
-        return distance_of_time_in_words_to_now(message.created_at) + " ago"
-      else
-        return ""
+        return message
       end
-    else
-      return ""
     end
   end
 end
