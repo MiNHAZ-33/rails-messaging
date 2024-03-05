@@ -1,13 +1,13 @@
 <nav class="bg-white  flex items-center justify-around py-2">
     <div class="flex flex items-center">
       <%= link_to root_path do %>
-      <div class="flex items-center justify-center hover:bg-gray-200 px-2 py-2 hover:rounded-full">
+      <div class="flex items-center justify-center hover:bg-background-color px-2 py-2 hover:rounded-full">
         <div>
           <i class="fa-solid fa-star-of-life fa-lg" style="color: #2563eb"></i>
         </div>
       </div>
       <% end %>
-      <div class="px-4 mx-2 max-w-48 border-2 rounded-full border-gray-200 flex items-center">
+      <div class="px-4 mx-2 max-w-48 border-2 rounded-fulhover:bg-background-color flex items-center">
         <i class="fa-solid fa-magnifying-glass" style="color: #a1a0a0"></i>
         <input class="w-full px-4 py-1 focus:outline-none" placeholder="Search...">
       </div>
@@ -16,14 +16,14 @@
     <div class="flex gap-2">
 
       <%= link_to root_path do %>
-        <div class="flex items-center justify-center hover:bg-gray-200 px-3 py-1 hover:rounded-full">
+        <div class="flex items-center justify-center hover:bg-background-color px-3 py-1 hover:rounded-full">
           <i class="fa-solid fa-house  pr-2" style="color: #2563eb"></i>
           <h1 class="hidden lg:block  ">Homepage</h1>
         </div>
       <% end %>
 
       <%= link_to root_path do %>
-        <div class="flex items-center justify-center hover:bg-gray-200 px-3 py-1 hover:rounded-full">
+        <div class="flex items-center justify-center hover:bg-background-color px-3 py-1 hover:rounded-full">
           <i class="fa-solid fa-users  px-2 " style="color: #2563eb"></i>
           <h1 class="hidden lg:block  ">Connections</h1>
         </div>
@@ -32,14 +32,14 @@
 
 
   <%= link_to root_path do %>
-    <div class="flex items-center justify-center hover:bg-gray-200 px-3 py-1 hover:rounded-full">
+    <div class="flex items-center justify-center hover:bg-background-color px-3 py-1 hover:rounded-full">
       <i class="fa-solid fa-message  px-2" style="color: #2563eb"></i>
       <h1 class="hidden lg:block  ">Messages</h1>
     </div>
   <% end %>
 
   <%= link_to root_path do %>
-    <div class="flex items-center justify-center hover:bg-gray-200 px-3 py-1 hover:rounded-full">
+    <div class="flex items-center justify-center hover:bg-background-color px-3 py-1 hover:rounded-full">
       <i class="fa-solid fa-bell  px-2" style="color: #2563eb"></i>
       <h1 class="hidden lg:block pr-2">Notifications</h1>
       <div class="bg-red-500 px-1 h-[1.3rem] w-[1.3rem] text-center rounded-full text-white text-sm">3</div>
@@ -47,7 +47,7 @@
   <% end %>
 
   <%= link_to root_path do %>
-    <div class="flex items-center justify-center hover:bg-gray-200 px-3 py-1 hover:rounded-full">
+    <div class="flex items-center justify-center hover:bg-background-color px-3 py-1 hover:rounded-full">
       <i class="fa-solid fa-screwdriver-wrench  px-2" style="color: #2563eb"></i>
       <h1 class="hidden lg:block  ">Tools</h1>
     </div>
@@ -58,7 +58,7 @@
  <%#= link_to root_path do %>
     <% if current_user  %>
       <div data-controller="toggle" class="relative">
-        <div class="flex items-center hover:bg-gray-200 px-3 py-1 hover:rounded-full" >
+        <div class="flex items-center hover:bg-background-color px-3 py-1 hover:rounded-full" >
           <div class="px-2">
             <div class="rounded-full h-[2rem] w-[2rem] overflow-hidden ">
               <%= image_tag("profile_avatar.jpg") %>
@@ -72,7 +72,7 @@
         </div>
       </div>
     <% else %>
-      <div class="flex items-center hover:bg-gray-200 px-2 py-1 hover:rounded-lg">
+      <div class="flex items-center hover:bg-background-color px-2 py-1 hover:rounded-lg">
         <div class="px-2">
           <div class="rounded-full h-[3rem] w-[3rem] overflow-hidden ">
             <%= image_tag("profile_avatar.jpg") %>
