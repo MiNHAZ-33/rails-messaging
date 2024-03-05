@@ -16,4 +16,17 @@ module UsersHelper
     user = [user_1, user_2].sort
     return "private_#{user[0]}_#{user[1]}"
   end
+
+  def find_last_message_date(user_id)
+    if Current.user
+      message = Message.get_messages(Current.user.id, user_id)&.order(created_at: :desc).first
+      if message
+        return distance_of_time_in_words_to_now(message.created_at) + " ago"
+      else
+        return ""
+      end
+    else
+      return ""
+    end
+  end
 end
