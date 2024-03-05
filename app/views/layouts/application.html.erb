@@ -11,8 +11,8 @@
     <%= javascript_importmap_tags %>
     <style>
       <%= ".msg-#{current_user&.id}-cont" %>{
-       display: flex;
-      justify-content: flex-end;
+          display: flex;
+          justify-content: flex-end; !important;
       }
       <%= ".msg-#{current_user&.id}-body" %>{
           background-color: rgba(0,122,245,255); !important;
