@@ -3,17 +3,16 @@
     <%= f.hidden_field :receiver_id, value: @user.id  %>
     <%= f.hidden_field :sender_id, value: current_user.id %>
     <%= f.hidden_field :room_id, value: get_name_by_id(current_user.id, @user.id) %>
-    <div class="flex items-center justify-center overflow-hidden">
-      <div class="m-1 pr-1">
-        <i class="fa-solid fa-image fa-lg"></i>
+    <div class="flex items-center overflow-hidden w-full ">
+      <i class="fa-solid fa-circle-plus fa-lg px-2" style="color: #7c7c7c"></i>
+      <div class="flex border-2 px-2 border-gray-200 rounded-full items-center bg-white">
+        <%= f.text_field :body, autocomplete: 'off', class:"w-full  px-2 flex-grow border-0 focus:outline-none"%>
+        <i class="fa-regular fa-face-smile fa-lg"></i>
+        <%= button_tag type: 'submit', class:"hidden bg-sky-300 px-4 py-2  rounded-r-lg " do %>
+          <i class="fa-solid fa-paper-plane"></i>
+        <% end %>
       </div>
-      <div class="m-1 pr-1">
-        <i class="fa-solid fa-microphone fa-lg"></i>
-      </div>
-      <%= f.text_field :body, autocomplete: 'off', class:"flex-grow rounded-l-lg border-gray-300"%>
-      <%= button_tag type: 'submit', class:"bg-sky-300 px-4 py-2  rounded-r-lg " do %>
-        <i class="fa-solid fa-paper-plane"></i>
-      <% end %>
+      <i class="fa-solid fa-microphone fa-lg px-2" style="color: #7c7c7c"></i>
     </div>
   <% end %>
 </div>
