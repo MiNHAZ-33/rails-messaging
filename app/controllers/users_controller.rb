@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @users = User.all_except(current_user)
     @room_name = get_name_by_id(current_user.id, @user.id)
     @room = Room.where(name: @room_name).first || Room.create_private_room(@room_name)
+    @first_message_date = @room.messages.order(created_at: :desc).first&.created_at || DateTime.now
     @messages = @room.messages.order(created_at: :asc)
     @message = Message.new
     render 'homes/index'
