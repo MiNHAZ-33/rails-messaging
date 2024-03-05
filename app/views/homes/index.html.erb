@@ -3,17 +3,23 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="grid grid-cols-12  rounded-lg bg-white">
+  <div class="grid grid-cols-12  rounded-lg bg-white shadow">
     <div class="h-[39rem] col-span-3 border-r-2  rounded-l-lg overflow-auto">
-      <div class="py-2 px-2">
-        <h2 class="text-xl">Message</h2>
+      <div class="py-4 px-2 flex justify-between border-b-2">
+        <h2 class="">Message</h2>
+        <div>
+          <i class="fa-solid fa-circle-plus px-2" style="color: #7c7c7c"></i>
+          <i class="fa-solid fa-ellipsis-vertical" style="color: #7c7c7c"></i>
+        </div>
       </div>
 <!--      Search User-->
-      <div class="px-2">
-        <input class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-400" placeholder="Search message...">
+      <div class="flex items-center py-2 border-b-2">
+        <i class="fa-solid fa-circle-plus px-2" style="color: #7c7c7c"></i>
+        <input class="w-full px-4 py-2  rounded-lg focus:outline-none" placeholder="Search message...">
+        <i class="fa-solid fa-bars px-2" style="color: #7c7c7c"></i>
       </div>
       <%= turbo_stream_from "users" %>
-      <div id="users" class="pt-2">
+      <div id="users" class="">
         <%= render @users %>
       </div>
     </div>
