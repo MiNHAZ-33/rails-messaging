@@ -25,11 +25,17 @@
     </div>
     <div class="h-[39rem] col-span-9 border-2 border-white px-3 rounded-r-lg">
       <% if @user %>
-        <div class="py-1">
-          <div class="text-2xl font-semibold">
-            <%= @user.username %>
+        <div class="py-1 flex justify-between items-center">
+          <div>
+            <div class=" ">
+              <%= @user.username %>
+            </div>
+            <div class="flex items-center">
+              <div class="h-[0.5rem] w-[0.5rem] bg-[#2ac85e] rounded-full"></div>
+              <p class="text-sm pl-2 text-gray-700">Online</p>
+            </div>
           </div>
-          <p>Available</p>
+          <i class="fa-solid fa-ellipsis-vertical" style="color: #7c7c7c"></i>
         </div>
         <div class="pt-2">
 <!--          User + Message div-->
