@@ -45,11 +45,8 @@
       <div class="bg-red-500 px-1 h-[1.3rem] w-[1.3rem] text-center rounded-full text-white text-sm">3</div>
     </div>
   <% end %>
-
       <div class="border-l-2 border-gray-300 my-1">
-
       </div>
-
   <%= link_to root_path do %>
     <div class="flex items-center justify-center hover:bg-background-color px-3 py-1 hover:rounded-full">
       <i class="fa-solid fa-screwdriver-wrench  px-2" style="color: #2563eb"></i>
@@ -66,7 +63,11 @@
           <div class="flex items-center hover:bg-background-color px-3 py-1 hover:rounded-full" >
             <div class="px-2">
               <div class="rounded-full h-[2rem] w-[2rem] overflow-hidden ">
-                <%= image_tag("profile_avatar.jpg") %>
+                <% if current_user.avatar.attached? %>
+                  <%= image_tag(current_user.avatar) %>
+                <% else %>
+                   <%= image_tag("profile_avatar.jpg") %>
+                  <% end %>
               </div>
             </div>
             <%= current_user.username %>
