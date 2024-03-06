@@ -1,7 +1,11 @@
 <%= link_to user do %>
   <div class="py-2 px-2 flex items-center hover:bg-background-color <%= user.id == params[:id].to_i ? "bg-background-color border-l-4 border-blue-500" : "border-b-2" %>">
-    <div class="h-[2.5rem] w-[2.5rem] rounded-full overflow-hidden p-1">
-      <%= image_tag("profile_avatar.jpg") %>
+    <div class="h-[2.5rem] w-[2.5rem] rounded-full overflow-hidden ">
+      <% if user.avatar.attached? %>
+        <%= image_tag(user.avatar, class:"w-full h-full object-cover") %>
+        <% else %>
+      <%= image_tag("profile_avatar.jpg", class:"w-full h-full object-cover") %>
+        <% end %>
     </div>
     <div class="w-full px-2 ">
       <div class="flex items-center justify-between ">

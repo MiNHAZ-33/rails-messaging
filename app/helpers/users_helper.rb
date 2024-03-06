@@ -32,4 +32,10 @@ module UsersHelper
       end
     end
   end
+
+  def user_avatar(user_id)
+    user = User.find(user_id)
+    return user&.avatar
+  end
+
 end
