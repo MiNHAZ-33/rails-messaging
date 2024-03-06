@@ -5,7 +5,7 @@
  <div class="grid grid-cols-12">
      <div class="col-span-9  rounded-lg bg-white shadow">
        <div class="grid grid-cols-9">
-         <div class="h-[39rem] col-span-3 border-r-2  rounded-l-lg overflow-auto">
+         <div class="h-[40rem] col-span-3 border-r-2  rounded-l-lg overflow-auto">
            <div class="py-4 px-2 flex justify-between border-b-2">
              <h2 class="">Message</h2>
              <div>
@@ -24,7 +24,7 @@
              <%= render @users %>
            </div>
          </div>
-         <div class="h-[39rem] col-span-6 border-2 border-white px-3 rounded-r-lg">
+         <div class="h-[40rem] col-span-6 border-2 border-white px-3 rounded-r-lg">
          <% if @user %>
            <div class="py-1 flex justify-between items-center">
              <div>
@@ -54,7 +54,7 @@
                  </div>
                </div>
 <!--               Divider-->
-               <div class="relative flex py-5 items-center">
+               <div class="relative flex py-2 items-center">
                  <div class="flex-grow border-t border-gray-400"></div>
                  <span class="flex-shrink mx-4 text-gray-400"><%= @first_message_date.strftime('%Y-%m') %></span>
                  <div class="flex-grow border-t border-gray-400"></div>
@@ -70,7 +70,7 @@
                <%= render "messages/form" %>
              </div>
          <% else %>
-           <div class="">
+           <div class="h-[40rem]">
              <%= render "messages/no_message" %>
            </div>
          <% end %>
@@ -79,7 +79,7 @@
        </div>
      </div>
 <!--   Advertisement section-->
-     <div class="hidden lg:block col-span-3 bg-white shadow rounded-lg mx-4 p-4">
+     <div class="col-span-3 bg-white shadow rounded-lg p-4 mx-4">
        <span >Advertising</span>
        <div class="py-2">
        <%= image_tag("https://picsum.photos/200") %>
