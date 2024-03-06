@@ -81,13 +81,20 @@
        </div>
      </div>
 <!--   Advertisement section-->
-     <div class="col-span-3 bg-white shadow rounded-lg p-4 mx-4">
+     <div class="col-span-3  mx-4">
+       <div class="bg-white  p-4 shadow rounded-lg">
        <span >Advertising</span>
        <div class="py-2">
          <%= image_tag("https://picsum.photos/200") %>
        </div>
-       <h1 class="text-sm text-gray-700">Privacy policy</h1>
-       <h1 class="text-sm text-gray-700">Contact us</h1>
+       <%= link_to  "Visit website" , root_path, class:"text-blue-700"%>
+       </div>
+       <div class="flex pt-4">
+         <h1 class="text-sm text-gray-700 underline pr-2">Privacy policy</h1>
+         <h1 class="text-sm text-gray-700 underline pr-2">Contact us</h1>
+         <h1 class="text-sm text-gray-700 underline">Cookies</h1>
+       </div>
+       <span class="text-sm text-gray-700">Minhaz, 2024</span>
      </div>
  </div>
 
