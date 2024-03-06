@@ -62,15 +62,18 @@
  <%#= link_to root_path do %>
     <% if current_user  %>
       <div data-controller="toggle" class="relative">
-        <div class="flex items-center hover:bg-background-color px-3 py-1 hover:rounded-full" >
-          <div class="px-2">
-            <div class="rounded-full h-[2rem] w-[2rem] overflow-hidden ">
-              <%= image_tag("profile_avatar.jpg") %>
+        <button data-action="click->toggle#menu" class=" ">
+          <div class="flex items-center hover:bg-background-color px-3 py-1 hover:rounded-full" >
+            <div class="px-2">
+              <div class="rounded-full h-[2rem] w-[2rem] overflow-hidden ">
+                <%= image_tag("profile_avatar.jpg") %>
+              </div>
             </div>
+            <%= current_user.username %>
+            <i class="fa-solid fa-caret-down px-2"></i>
           </div>
-          <button data-action="click->toggle#menu" class=" "><%= current_user.username %></button>
-          <i class="fa-solid fa-caret-down px-2"></i>
-        </div>
+        </button>
+
         <div data-toggle-target="menu" class="hidden absolute bg-white px-3 lg:px-5 py-2 divide-y-2 border border-gray-300 rounded-full right-0">
            <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
         </div>
