@@ -16,9 +16,10 @@ module UsersHelper
   def find_last_message_date(user_id)
     message = last_message(user_id)
     if message
-      return distance_of_time_in_words_to_now(message.created_at) + " ago"
+      # return distance_of_time_in_words_to_now(message.created_at) + " ago"
+      return message.created_at.strftime("%d %b")
     else
-      return ""
+      return DateTime.now.strftime("%d %b")
     end
   end
 
