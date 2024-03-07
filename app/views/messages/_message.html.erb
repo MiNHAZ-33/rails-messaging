@@ -2,7 +2,7 @@
     <div class="h-[1.5rem] w-[1.5rem] rounded-full overflow-hidden msg-<%= message.sender_id %>-avatar">
       <%= image_tag(user_avatar(message.sender_id), class:"w-full h-full object-cover") %>
     </div>
-    <div class=" bg-white rounded-full p-3 m-2 msg-<%= message.sender_id %>-body max-w-80">
+    <div class=" bg-white text-xs rounded-full p-3 m-2 msg-<%= message.sender_id %>-body max-w-80">
       <h3><%= message.body %></h3>
     </div>
 </div>
