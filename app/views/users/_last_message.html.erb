@@ -1,5 +1,6 @@
+<div id="<%= user.id %>">
 <%= link_to user do %>
-  <div id="<%= dom_id(user) %>" class="py-2 px-2 flex items-center hover:bg-background-color <%= user.id == params[:id].to_i ? "bg-background-color border-l-4 border-blue-500" : "border-b-2" %>">
+  <div class="py-2 px-2 flex items-center hover:bg-background-color <%= user.id == params[:id].to_i  ? "bg-background-color border-l-4 border-blue-500" : "border-b-2" %>">
     <div class="h-[2.5rem] w-[2.5rem] rounded-full overflow-hidden ">
       <% if user.avatar.attached? %>
         <%= image_tag(url_for(user.avatar), class:"w-full h-full object-cover") %>
@@ -12,8 +13,8 @@
         <%=  user.username %>
         <span class="text-sm text-gray-700 "><%= last_message_date %></span>
       </div>
-      <%= turbo_stream_from "#{get_name_by_id(user.id, Current.user&.id || 0)}last_msg_#{user.id}" %>
-      <span id="<%=user.id%>" class="text-sm font-light inline-block truncate"><%= last_message %></span>
+      <span class="text-sm font-light inline-block truncate"><%= last_message %></span>
     </div>
   </div>
 <% end %>
+</div>
