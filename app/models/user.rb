@@ -7,8 +7,6 @@ class User < ApplicationRecord
   validates :username, presence: true
   has_one_attached :avatar
 
-  after_create_commit {broadcast_append_to "users"}
-
-
+  after_create_commit {broadcast_append_to "users", target: "users",partial: "users/user", locals: { user: self } }
 
 end

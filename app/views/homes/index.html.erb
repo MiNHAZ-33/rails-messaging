@@ -21,7 +21,9 @@
            </div>
            <%= turbo_stream_from "users" %>
            <div id="users" class="">
-             <%= render @users %>
+             <% @users.each do |user| %>
+               <%=  render partial: "users/user", locals: {user: user} %>
+             <% end %>
            </div>
          </div>
          <div class="h-[40rem] col-span-6 border-2 border-white px-3 rounded-r-lg">
