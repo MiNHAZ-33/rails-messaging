@@ -1,5 +1,5 @@
 <%= turbo_stream_from "#{user.id}_last_msg" %>
-<div id="<%user.id %>">
-  <%= render partial: "users/last_message", locals: { user: user, last_message_date: find_last_message_date(user.id), last_message: find_last_message(user.id) } %>
+<div id="<%user.id %>" class=" <%= selected_div(user.id, params[:id]) %>">
+  <%= render partial: "users/last_message", locals: { user: user, last_message_date: find_last_message_date(user.id), last_message: find_last_message(user.id), message: Message.new } %>
 </div>
 

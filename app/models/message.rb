@@ -16,8 +16,8 @@ class Message < ApplicationRecord
   def notify
     sender = User.find(self.sender_id)
     receiver = User.find(self.receiver_id)
-    broadcast_update_to "#{sender_id}_last_msg", target: sender_id, partial: "users/last_message", locals:{user: sender, last_message_date: DateTime.now.strftime("%d %b"), last_message: self.body }
-    broadcast_update_to "#{receiver_id}_last_msg", target: receiver_id, partial: "users/last_message", locals:{user: receiver, last_message_date: DateTime.now.strftime("%d %b"), last_message: self.body}
+    broadcast_update_to "#{sender_id}_last_msg", target: sender_id, partial: "users/last_message", locals:{user: sender, last_message_date: DateTime.now.strftime("%d %b"), last_message: self.body, message: self }
+    broadcast_update_to "#{receiver_id}_last_msg", target: receiver_id, partial: "users/last_message", locals:{user: receiver, last_message_date: DateTime.now.strftime("%d %b"), last_message: self.body, message: self}
   end
 
   # def broadcast_to_sidebar(user_id, highlight)
