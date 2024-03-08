@@ -1,5 +1,9 @@
 <%= turbo_stream_from "#{get_name_by_id(Current.user&.id || 0, user.id)}_last_msg" %>
 <div id="<%user.id %>" class=" <%= selected_div(user.id, params[:id]) %>">
-  <%= render partial: "users/last_message", locals: { user: user, last_message_date: find_last_message_date(user.id), last_message: find_last_message(user.id), message: Message.new, seen_count: initial_unseen_msg_count(get_name_by_id(Current.user&.id || 0, user.id), user.id) } %>
+  <%= render partial: "users/last_message",
+             locals: { user: user, last_message_date: find_last_message_date(user.id),
+                       last_message: find_last_message(user.id),
+                       seen_count: initial_unseen_msg_count(get_name_by_id(Current.user&.id || 0, user.id), user.id) } %>
+  <%#= render partial: "users/last_message", locals: { user: user, last_message_date: find_last_message_date(user.id), last_message: find_last_message(user.id), message: Message.new, seen_count: initial_unseen_msg_count(get_name_by_id(Current.user&.id || 0, user.id), user.id) } %>
 </div>
 

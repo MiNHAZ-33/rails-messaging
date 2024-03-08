@@ -8,7 +8,7 @@
           <%= image_tag("profile_avatar.jpg", class:"w-full h-full object-cover") %>
         <% end %>
       </div>
-      <div class="w-full px-2 ">
+      <div class="w-full px-2 truncate">
         <div class="flex items-center justify-between ">
           <div>
             <%=  user.username %>
@@ -20,7 +20,9 @@
           </div>
           <span class="text-sm text-gray-700 "><%= last_message_date %></span>
         </div>
-        <span class="text-sm font-light inline-block truncate"><%= last_message %></span>
+        <div class="truncate">
+          <span class="text-sm font-light inline-block "><%= last_message %></span>
+        </div>
       </div>
     </div>
 <!--  </div>-->

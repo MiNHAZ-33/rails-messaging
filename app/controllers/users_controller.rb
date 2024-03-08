@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  include UsersHelper
+  include RoomsHelper
   before_action :set_user
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_user_id
   def show
@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     @room = Room.where(name: @room_name).first || Room.create_private_room(@room_name)
     @first_message_date = @room.messages.order(created_at: :desc).first&.created_at || DateTime.now
     @messages = @room.messages.order(created_at: :asc)
-    puts "Calling from hover"
     change_message_status(@messages)
     @message = Message.new
     # @msg_count = @messages.where(receiver_id: @user.id, is_seen: false).count
