@@ -1,5 +1,5 @@
-<%= link_to user do %>
-  <div id="<%= user.id %>" >
+<%= link_to user, id:"#{user.id}" do %>
+<!--  <div id="<%#= user.id %>" >-->
       <div class="py-2 px-2 flex items-center hover:bg-background-color <%= seen_count > 0 ? "bg-sky-200": "" %>" >
       <div class="h-[2.5rem] w-[2.5rem] rounded-full overflow-hidden ">
         <% if user.avatar.attached? %>
@@ -23,7 +23,7 @@
         <span class="text-sm font-light inline-block truncate"><%= last_message %></span>
       </div>
     </div>
-  </div>
+<!--  </div>-->
 <% end %>
 
 

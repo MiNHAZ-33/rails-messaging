@@ -8,8 +8,10 @@ class UsersController < ApplicationController
     @room = Room.where(name: @room_name).first || Room.create_private_room(@room_name)
     @first_message_date = @room.messages.order(created_at: :desc).first&.created_at || DateTime.now
     @messages = @room.messages.order(created_at: :asc)
-    # change_message_status(@messages)
+    puts "Calling from hover"
+    change_message_status(@messages)
     @message = Message.new
+    # @msg_count = @messages.where(receiver_id: @user.id, is_seen: false).count
     render 'homes/index'
   end
 
@@ -23,8 +25,9 @@ class UsersController < ApplicationController
   end
 
   def change_message_status(messages)
-    puts "Changing seen to true"
-    messages.where(receiver_id: current_user.id).update_all(is_seen: true)
+    messages.where(receiver_id: current_user.id, is_seen: false).each do |message|
+      message.update(is_seen: true)
+    end
   end
 
 end

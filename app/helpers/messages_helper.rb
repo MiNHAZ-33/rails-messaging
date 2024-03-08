@@ -8,10 +8,13 @@ module MessagesHelper
     end
   end
 
-  def new_msg(user_id, sender_id)
-    # if user_id == sender_id.to_i
-    #   return "bg-blue-300 "
-    # end
+  def initial_unseen_msg_count(room, user)
+    room = Room.find_by(name: room)
+    if room
+    count = room.messages.where(sender_id: user, is_seen: false).count
+      return count
+    else
+      return 0
+    end
   end
-
 end
