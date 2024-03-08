@@ -1,6 +1,6 @@
 <%= link_to user do %>
   <div id="<%= user.id %>" >
-      <div class="py-2 px-2 flex items-center hover:bg-background-color <%= new_msg(user.id, message.sender_id) %>" >
+      <div class="py-2 px-2 flex items-center hover:bg-background-color <%= seen_count > 0 ? "bg-sky-200": "" %>" >
       <div class="h-[2.5rem] w-[2.5rem] rounded-full overflow-hidden ">
         <% if user.avatar.attached? %>
           <%= image_tag(url_for(user.avatar), class:"w-full h-full object-cover") %>
@@ -10,7 +10,14 @@
       </div>
       <div class="w-full px-2 ">
         <div class="flex items-center justify-between ">
-          <%=  user.username %>
+          <div>
+            <%=  user.username %>
+            <% if seen_count > 0 %>
+                <span class="text-xs">
+                  <%= seen_count %>
+                </span>
+            <% end %>
+          </div>
           <span class="text-sm text-gray-700 "><%= last_message_date %></span>
         </div>
         <span class="text-sm font-light inline-block truncate"><%= last_message %></span>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_06_071513) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_08_043354) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_071513) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "room_id", null: false
+    t.boolean "is_seen", default: false
     t.index ["receiver_id"], name: "index_messages_on_receiver_id"
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
