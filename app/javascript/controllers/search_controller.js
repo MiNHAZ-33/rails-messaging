@@ -4,10 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["inputField", "outputField"];
 
-  connect() {
-    console.log("Search is connected");
-  }
-
   async typed() {
     const inputFieldValue = this.inputFieldTarget.value;
     if(inputFieldValue === ""){
@@ -32,10 +28,15 @@ export default class extends Controller {
 
   displayResults(results) {
     if (results === null){
-      return
+      this.outputFieldTarget.hidden = true
     } else {
-      const resultList = results.map(result => `<li>${result.username}</li>`).join("");
-      this.outputFieldTarget.innerHTML = `<ul>${resultList}</ul>`;
+      this.outputFieldTarget.hidden = false
+      if(results.length === 0){
+        this.outputFieldTarget.innerHTML = `<ul class="w-full bg-white px-2 py-2 ">No match found</ul>`;
+        return
+      }
+      const resultList = results.map(result => `<li class="bg-white px-2 border-b-2 py-4 w-full"><a href="/users/${result.id}"> ${result.username}</a></li>`).join("");
+      this.outputFieldTarget.innerHTML = `<ul class="w-full bg-white">${resultList}</ul>`;
     }
   }
 }
