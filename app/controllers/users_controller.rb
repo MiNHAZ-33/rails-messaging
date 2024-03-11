@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     @messages = @room.messages.order(created_at: :asc)
     change_message_status(@messages)
     @message = Message.new
-    # @msg_count = @messages.where(receiver_id: @user.id, is_seen: false).count
     render 'homes/index'
   end
 
