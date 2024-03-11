@@ -14,10 +14,11 @@
              </div>
            </div>
            <!--      Search User-->
-           <div class="flex items-center py-2 border-b-2">
+           <div class="flex items-center py-2 border-b-2" data-controller="search">
              <i class="fa-solid fa-circle-plus px-2" style="color: #7c7c7c"></i>
-             <input class="w-full px-4 py-2  rounded-lg focus:outline-none" placeholder="Search message...">
+             <input data-search-target="inputField" data-action="input->search#typed" class="w-full px-4 py-2  rounded-lg focus:outline-none" placeholder="Search message...">
              <i class="fa-solid fa-bars px-2" style="color: #7c7c7c"></i>
+             <p data-search-target="outputField"></p>
            </div>
            <%= turbo_stream_from "users" %>
            <div id="users" class="">

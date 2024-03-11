@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     render 'homes/index'
   end
 
+
   private
   def set_user
     @user = User.find(params[:id])
