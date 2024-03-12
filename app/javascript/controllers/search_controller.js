@@ -3,20 +3,27 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="search"
 export default class extends Controller {
   static targets = ["inputField", "outputField"];
+  typingTimer;
 
   async typed() {
+
+    clearTimeout(this.typingTimer);
+
     const inputFieldValue = this.inputFieldTarget.value;
     if(inputFieldValue === ""){
       this.displayResults(null)
       return
     }
-    try {
-      const searchResults = await this.searchInBackend(inputFieldValue);
-      this.displayResults(searchResults);
-    } catch (error) {
-      console.error('Error searching:', error);
-      this.outputFieldTarget.innerHTML = "<p>Error searching. Please try again.</p>";
-    }
+
+    this.typingTimer = setTimeout(async()=>{
+      try {
+        const searchResults = await this.searchInBackend(inputFieldValue);
+        this.displayResults(searchResults);
+      } catch (error) {
+        console.error('Error searching:', error);
+        this.outputFieldTarget.innerHTML = "<p>Error searching. Please try again.</p>";
+      }
+    }, 500)
   }
 
   async searchInBackend(query) {
