@@ -8,17 +8,21 @@
          <div class="h-[90vh] col-span-3 border-r-2   overflow-auto">
            <div class="py-4 px-2 flex justify-between border-b-2">
              <h2 class="">Message</h2>
-             <div>
-               <i class="fa-solid fa-circle-plus px-2" style="color: #7c7c7c"></i>
-               <i class="fa-solid fa-ellipsis-vertical" style="color: #7c7c7c"></i>
+             <div class="flex">
+               <div class="hover:bg-background-color cursor-pointer rounded-lg">
+                 <i class="fa-solid fa-circle-plus px-2" style="color: #7c7c7c"></i>
+               </div>
+               <div class="hover:bg-background-color cursor-pointer rounded-lg">
+                  <i class="fa-solid fa-ellipsis-vertical" style="color: #7c7c7c"></i>
+               </div>
              </div>
            </div>
            <!--      Search User-->
            <div class="relative" data-controller="search">
              <div class="flex items-center py-2 border-b-2" >
-               <i class="fa-solid fa-circle-plus px-2" style="color: #7c7c7c"></i>
+               <i class="fa-solid fa-circle-plus px-2 hover:bg-background-color cursor-pointer rounded-lg" style="color: #7c7c7c"></i>
                <input data-search-target="inputField" data-action="input->search#typed" class="w-full px-4 py-2  rounded-lg focus:outline-none" placeholder="Search user...">
-               <i class="fa-solid fa-bars px-2" style="color: #7c7c7c"></i>
+               <i class="fa-solid fa-bars px-2 hover:bg-background-color cursor-pointer rounded-lg" style="color: #7c7c7c"></i>
              </div>
              <div class="absolute w-full bg-white" data-search-target="outputField"></div>
            </div>
@@ -42,7 +46,7 @@
                  <p class="text-sm pl-2 text-gray-700">Online</p>
                </div>
              </div>
-             <i class="fa-solid fa-ellipsis-vertical" style="color: #7c7c7c"></i>
+             <i class="fa-solid fa-ellipsis-vertical hover:bg-background-color cursor-pointer rounded-lg" style="color: #7c7c7c"></i>
            </div>
            <div class="pt-2">
              <!--          User + Message div-->
