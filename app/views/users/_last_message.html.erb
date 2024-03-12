@@ -1,6 +1,7 @@
 <%= link_to user, id:"#{user.id}" do %>
 <!--  <div id="<%#= user.id %>" >-->
-      <div class="py-2 px-2 flex items-center hover:bg-background-color <%= seen_count > 0 ? "bg-sky-200": "" %>" >
+  <%#= seen_count > 0 ? "bg-sky-400": "" %>
+      <div class="py-2 px-2 flex items-center hover:bg-background-color <%= seen_count > 0 ? "font-bold": "" %>" >
       <div class="h-[2.5rem] w-[2.5rem] rounded-full overflow-hidden ">
         <% if user.avatar.attached? %>
           <%= image_tag(url_for(user.avatar), class:"w-full h-full object-cover") %>
@@ -8,20 +9,22 @@
           <%= image_tag("profile_avatar.jpg", class:"w-full h-full object-cover") %>
         <% end %>
       </div>
-      <div class="w-full px-2 truncate">
+      <div class="w-full px-2 truncate <%= seen_count > 0 ? "font-bold": "" %>">
         <div class="flex items-center justify-between ">
           <div>
             <%=  user.username %>
             <% if seen_count > 0 %>
-                <span class="text-xs">
+              <div class="inline-block bg-green-200 h-[1.2rem] w-[1.2rem] rounded-full text-center">
+                <span class="text-xs p-1">
                   <%= seen_count %>
                 </span>
+              </div>
             <% end %>
           </div>
           <span class="text-sm text-gray-700 "><%= last_message_date %></span>
         </div>
         <div class="truncate">
-          <span class="text-sm font-light inline-block "><%= last_message %></span>
+          <span class="text-sm <%= seen_count > 0 ? "font-bold": "font-light" %> inline-block "><%= last_message %></span>
         </div>
       </div>
     </div>
