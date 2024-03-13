@@ -41,10 +41,12 @@
                <div class=" ">
                  <%= @user.username %>
                </div>
-               <div class="flex items-center">
-                 <div class="h-[0.5rem] w-[0.5rem] bg-[#2ac85e] rounded-full"></div>
-                 <p class="text-sm pl-2 text-gray-700">Online</p>
-               </div>
+<!--               <div class="flex items-center">-->
+<!--                 <div class="h-[0.5rem] w-[0.5rem] bg-[#2ac85e] rounded-full"></div>-->
+<!--                 <p class="text-sm pl-2 text-gray-700"><%#= @user.status ? "Online" : "Offline" %> </p>-->
+<!--               </div>-->
+               <%= turbo_stream_from "user_status" %>
+               <%= render "users/status", user: @user %>
              </div>
              <i class="fa-solid fa-ellipsis-vertical hover:bg-background-color cursor-pointer rounded-lg" style="color: #7c7c7c"></i>
            </div>

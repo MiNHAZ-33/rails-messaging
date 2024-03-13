@@ -1,0 +1,2 @@
+<%= turbo_frame_tag "sidebar_user_status"%>
+<div id="<%= dom_id(user) %>" class="h-[0.5rem] w-[0.5rem] absolute right-1 bottom-[2px] <%= user.status ? "bg-[#2ac85e]" : "bg-gray-400"  %>  rounded-full"></div>

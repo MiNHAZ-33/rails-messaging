@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "user_status" %>
+<div id="<%= dom_id(user) %>">
+  <div class="flex items-center">
+    <div class="h-[0.5rem] w-[0.5rem] <%= user.status ? "bg-[#2ac85e]" : "bg-gray-400"  %>  rounded-full"></div>
+    <p class="text-sm pl-2 text-gray-700"><%= user.status ? "Online" : "Offline" %> </p>
+  </div>
+</div>
