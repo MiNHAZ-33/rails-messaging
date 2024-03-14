@@ -79,7 +79,9 @@
                <!--          Message section-->
                <%= turbo_stream_from @room %>
                <div id="messages" class=" h-[42vh]" >
-                 <%= render @messages %>
+                 <% @messages.each do |message| %>
+                  <%= render partial: "messages/message", locals: {message: message} %>
+                 <% end %>
                </div>
              </div>
              <!--          Message form-->

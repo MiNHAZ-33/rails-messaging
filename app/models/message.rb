@@ -2,7 +2,7 @@ class Message < ApplicationRecord
   belongs_to :room
 
   after_create_commit do
-    broadcast_append_to self.room
+    broadcast_append_to self.room, target: "messages", locals:{message: self}
     notify
   end
 
@@ -30,6 +30,17 @@ class Message < ApplicationRecord
 
   def set_current_room_as_seen
     self.room.messages.where(receiver_id: self.sender_id, is_seen: false).update_all(is_seen: true)
+  end
+
+  def self.show_avatar(message)
+    current_message = message
+    room = Room.find_by(id: message.room_id)
+    messages = room.messages.order(:created_at)
+    puts "show avatar is called from the view"
+    current_message_index = messages.find_index(message)
+    prev_message = current_message_index > 0 ? messages[current_message_index - 1] : nil
+
+    return current_message.sender_id == prev_message&.sender_id
   end
 
 end
