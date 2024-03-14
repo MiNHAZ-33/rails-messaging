@@ -3,6 +3,13 @@ import consumer from "channels/consumer"
 consumer.subscriptions.create("AppearanceChannel", {
   connected() {
     // Called when the subscription is ready for use on the server
+    // const home = document.getElementById("main")
+    // console.log("Connected the consumer")
+    // if( !home){
+    //   console.log("Should log out now")
+    //   this.perform("offline")
+    // }
+    console.log("Connected the consumer")
   },
 
   disconnected() {
