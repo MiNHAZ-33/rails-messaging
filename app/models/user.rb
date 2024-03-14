@@ -11,6 +11,6 @@ class User < ApplicationRecord
   after_create_commit {broadcast_append_to "users", target: "users",partial: "users/user", locals: { user: self } }
   after_update_commit do
     broadcast_replace_to  "user_status", partial: "users/status", user: self
-    broadcast_replace_to  "sidebar_user_status", partial: "users/sidebar_status", user: self
+    broadcast_replace_to  "sidebar_user_status", target:"#{self.id}_sidebar", partial: "users/sidebar_status", user: self
   end
 end
