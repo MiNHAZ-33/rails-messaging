@@ -33,7 +33,7 @@ module MessagesHelper
 
   def selected_div(user_id, sender_id)
     if user_id == sender_id.to_i
-      return "bg-background-color border-l-4 border-blue-500"
+      return "bg-background-color border-l-4 border-blue-400"
     else
       return "border-b-2"
     end
