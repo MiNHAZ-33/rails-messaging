@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "homes#index"
   resources :homes, only: [:index]
-  devise_for :users
+  devise_for :users, controllers: {sessions: 'sessions'}
   resources :users do
     resources :messages, only: [:create]
   end

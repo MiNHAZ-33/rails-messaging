@@ -9,6 +9,7 @@ class HomesController < ApplicationController
   def set_current_user
     puts "Setting current user"
     Current.user = current_user
+    current_user.update(status: true)
   end
 
 
